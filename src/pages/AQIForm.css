@@ -1,0 +1,22 @@
+
+.cover{
+    background: url(../assets/orangesky.jpg);
+    width: 45vw;
+    height:45vh;
+    border-radius: 15px;
+    position: absolute;
+    left: 30%;
+    
+}
+
+.cover h1{
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 2rem;
+    font-family: sans-serif;
+}
+
+.flex-form{
+padding-top:2rem ;
+text-align: center;
+}

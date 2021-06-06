@@ -1,0 +1,12 @@
+.navbar-collapse{
+    width:auto;
+}
+
+.navbar-brand{
+    font-size: xx-large;
+    color: blue !important;
+}
+
+.nav-link:hover{
+    color:blue !important;
+}

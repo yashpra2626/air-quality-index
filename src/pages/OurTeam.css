@@ -1,0 +1,140 @@
+.ourteam-background{
+    border-top-left-radius: 2%;
+    border-top-right-radius: 90%;
+  background-image: url(../assets/orangesky.jpg);
+  padding-bottom: 5%;
+  /* border-top: solid red 5px; */
+  /* border-top-left-radius: 5px; */
+  width: 500%;
+  padding-top: 15%;
+  /* padding-left: 26%; */
+  height:130rem;
+  /* background-position-y: center; */
+  
+  }
+
+  .team-heading{
+    color: #010017;
+    font-weight: 400;
+    font-size: -webkit-xxx-large;
+    text-decoration-line: underline;
+    position: absolute;
+    top: 71%;
+    left: 43%;
+  }
+
+  .teammate{
+    /* border-top: solid #010017 2px;
+    border-left: solid #010017 3px;
+    border-radius:24px; */
+    padding:5px;
+    width:40rem;
+    height:20rem;
+  }
+
+  .teammate-h1{
+    
+    color: #A60200;
+  }
+
+  .teammate-h3{
+    
+    width:60%;
+    color:#010017;
+    font-weight: 100;
+    font-size: larger;
+  }
+
+  .person1{
+    position:absolute;
+    top:100%;
+    left:45%;
+    transform: scale(1.2);
+  }
+
+  .person2{
+    position:absolute;
+    /* top:120%; */
+    top: 160%;
+    left:45%;
+    transform: scale(1.2);
+  }
+
+  .person3{
+    position:absolute;
+    /* top:230%; */
+    top: 220%;
+    left:45%;
+    transform: scale(1.2);
+  }
+
+  .team-img{
+    height: 75%;
+    position: relative;
+    /* border-right: ridge; */
+    left: -37%;
+    margin-top: -37%;
+  }
+
+  .team-imgraman{
+    height: 80%;
+    position: relative;
+    /* border-right: ridge; */
+    left: -41%;
+    margin-top: -35%;
+  }
+
+  .class-detail{
+    color: #010017;
+    font-size: x-large;
+  }
+
+  .team-bottomh1{
+    color: #010017;
+    font-size: 60px;
+    font-weight:bold;
+    position: absolute;
+    top: 30%;
+    /* top:240%; */
+    /* top: 360%; */
+    left: 20%;
+  }
+
+  .team-bottomh2{
+    /* color: #010017; */
+    color: #A60200;
+    font-size: 45px;
+    font-weight:bold;
+    position: absolute;
+    top: 42%;
+    /* top: 380%; */
+    /* top:255%; */
+    left: 16%;
+  }
+
+  .team-bottomh3{
+    /* color: #010017; */
+    color: #A60200;
+    font-size: 44px;
+    font-weight:bold;
+    position: absolute;
+    top: 51%;
+    /* top: 395%; */
+    /* top:265%; */
+    left: 32%;
+  }
+
+
+  .supervisor {
+    padding-top: 23%;
+    padding-left: 13%;
+    font-weight: bold;
+    
+  }
+
+  .supervisor-name{
+    padding-top: 1.5rem;
+    padding-left: 11.7%;
+    color: red;
+    font-weight: bolder;
+  }

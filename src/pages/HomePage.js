@@ -36,9 +36,7 @@ const HomePage = () => {
         industries can reduce air toxicity. Energy conservation is one of the
         best steps toward reducing air pollution.
       </p>
-      <div className="aqi-form">
        <AQIForm/>
-      </div>
     </div>
   );
 };

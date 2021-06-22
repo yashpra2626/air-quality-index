@@ -1,6 +1,6 @@
 {
   "name": "airindex",
-  "homepage":"http://yashpra2626.github.io/Air_Quality_Index",
+  "homepage": "http://yashpra2626.github.io/Air_Quality_Index",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "antd": "^4.14.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "react": "^17.0.1",
@@ -16,6 +17,7 @@
     "react-image": "^4.0.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-select": "^4.3.1",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -23,8 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

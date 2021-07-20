@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./AQIForm.css";
 import Select, { components } from 'react-select';
 import AsyncSelect from 'react-select/async';
+import AirGood from "../assets/airGood.svg";
+import AirModerate from "../assets/airModerate.svg";
+import AirSomeUnhealthy from "../assets/airSomeUnhealthy.svg";
+import AirRed from "../assets/airRed.svg";
+import AirHazard from "../assets/airHazard.svg"
 
 const AQIForm = () => {
 
@@ -10,8 +15,72 @@ const AQIForm = () => {
   let city = null;
   const [cityAir, setCityAir] = useState([]);
   const [cityWeather, setCityWeather] = useState([]);
+  const [airLevel, setAirLevel] = useState(null);
+  const [airEffect, setAirEffect] = useState(null);
+  const [airCaution, setAirCaution] = useState(null);
+  const [airHealthIcon, setAirHealthIcon] = useState(null);
+  const [cityName, setCityName] = useState(null);
+  const [colorOfBox, setColorOfBox] = useState(null);
 
   let messageText = "mishra ji";
+
+
+  const DUMMY_DATA = [
+    {
+      minAqi: 0,
+      maxAqi: 50,
+      air_condition: "Good",
+      effect: "Air quality is considered satisfactory, and air pollution poses little or no risk",
+      caution: "	None",
+      airIcon: AirGood,
+      boxColor: "airGood",
+    },
+    {
+      minAqi: 51,
+      maxAqi: 100,
+      air_condition: "Moderate",
+      effect: "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.",
+      caution: "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.",
+      airIcon: AirModerate,
+      boxColor: "airModerate",
+    },
+    {
+      minAqi: 101,
+      maxAqi: 150,
+      air_condition: "Poor",
+      effect: "Members of sensitive groups may experience health effects. The general public is not likely to be affected.",
+      caution: "Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.",
+      airIcon: AirSomeUnhealthy,
+      boxColor: "airSomeUnhealthy",
+    },
+    {
+      minAqi: 151,
+      maxAqi: 200,
+      air_condition: "Unhealthy",
+      effect: "Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects",
+      caution: "Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion",
+      airIcon: AirRed,
+      boxColor: "airUnhealthy",
+    },
+    {
+      minAqi: 201,
+      maxAqi: 300,
+      air_condition: "Very Unhealthy", 
+      effect: "Health warnings of emergency conditions. The entire population is more likely to be affected.",
+      caution: "Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.",
+      airIcon: AirRed,
+      boxColor: "airVeryUnhealthy",
+    },
+    {
+      minAqi: 301,
+      maxAqi: 300000000,
+      air_condition: "Hazardous",
+      effect: "Health alert: everyone may experience more serious health effects",
+      caution: "Everyone should avoid all outdoor exertion",
+      airIcon: AirHazard,
+      boxColor: "airHazard",
+    }
+  ]
 
   const countrySet = [];
   const stateSet = [];
@@ -39,6 +108,7 @@ const AQIForm = () => {
       console.log("selected city value", city);
       console.log("handler", messageText)
     }
+    // setVariables();
   };
 
 
@@ -64,7 +134,8 @@ const AQIForm = () => {
       `http://api.airvisual.com/v2/states?country=${country}&key=6fd4dde7-9338-4c95-b522-f59718eef025`
     );
     const responseState = await responseData.json()
-    stateSet.splice(0, stateSet.length);
+    console.log("naya call", responseState);
+    stateSet.splice(0, stateSet.length);   //to again empty the set when it is called back
     messageText = null;
     if (responseState.status === "success") {
       responseState.data.map((item, i) => (
@@ -110,10 +181,21 @@ const AQIForm = () => {
     else {
       console.log("Error search AQI", responseAQI.data.message)
     }
-    // console.log("city Air Quality", cityAir);
-    // console.log("city Weather", cityWeather)
-    // console.log("gcgcucutgu", responseAQI);
+    return { airStatus: responseAQI.data.current.pollution, weatherStatus: responseAQI.data.current.weather };
+  };
 
+  const setVariables = async () => {
+    const responseData = await CityDataProvider();
+    setCityName(city);
+    DUMMY_DATA.map((item) => {
+      if ((responseData.airStatus.aqius > item.minAqi) && (responseData.airStatus.aqius < item.maxAqi)) {
+        setAirLevel(item.air_condition);
+        setAirEffect(item.effect);
+        setAirCaution(item.caution);
+        setAirHealthIcon(item.airIcon);
+        setColorOfBox(item.boxColor);
+      }
+    })
   };
 
 
@@ -198,9 +280,58 @@ const AQIForm = () => {
             })}
           />
         </div>
-        {messageText && <p> {messageText} </p>}
-        <button type="button" onClick={() => CityDataProvider()}>Search AQI Value</button>
-        {cityAir.length!==0 && <p className="air-para">Air Quality Index of {city} is {cityAir.aqius} US AQI</p>}
+
+        {console.log("city Air Quality", cityAir)}
+        {console.log("city Weather", cityWeather)}
+        {/* {messageText && <p> {messageText} </p>} */}
+
+        <button type="button" className="button-css"
+          onClick={() =>
+            setVariables()
+          }>
+          Search AQI Value
+        </button>
+        {cityAir.length !== 0 &&
+          <div className={`${colorOfBox}-box`}>
+            <div class="airBox">
+              <div className="aqi-box">
+                <div className="usaqi">
+                  US AQI
+                </div>
+                <div className="aqi-value">
+                  {cityAir.aqius}
+                </div>
+              </div>
+              <div className="aqi-cond">
+                <div className="aqi-title">
+                  Live AQI Index
+                </div>
+                <div className="air-status">
+                  {airLevel}
+                </div>
+              </div>
+            </div>
+            <div className="airCityName">
+              {cityName}
+            </div>
+            <div className="airhealthIcon">
+              <img className='air-icon-class' src={airHealthIcon} alt="image of air" />
+            </div>
+
+          </div>
+        }
+        {cityAir.length !== 0 &&
+          <div className="index-message">
+            <div className="index-para">
+              <h1> ⚫ Health Implications </h1>
+              <p> {airEffect} </p>
+            </div>
+            <div className="index-para">
+              <h1> ⚫ Cautionary Statement (for PM2.5) </h1>
+              <p> {airCaution} </p>
+            </div>
+          </div>
+        }
       </div>
     </div>
   );

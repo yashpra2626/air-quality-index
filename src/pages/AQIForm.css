@@ -2,7 +2,7 @@
 .cover{
     background: url(../assets/orangesky.jpg);
     width: 75vw;
-    height:75vh;
+    /* height:75vh; */
     border-radius: 15px;
     position: absolute;
     margin-left:auto;
@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 50%;
 }
 
 .form-box{
@@ -74,4 +75,234 @@ text-align: center;
 
 .air-para{
     width: 100% !important;
+}
+
+
+.airGood-box{
+    background: #a8e05f;
+    color: #607631;
+    border-radius: 10px;
+    /* border:solid 5px black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    width: 80%;
+    height: 180px;
+    /* padding: 32px; */
+    margin-top:5%;
+    align-items: center;
+    opacity:0.9;
+}
+.airGood-box .aqi-box{
+    background: #87c13c;
+}
+
+.airModerate-box{
+    background: #fdd64b;
+    color: #8c6c1d;
+    border-radius: 10px;
+    /* border:solid 5px black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    width: 80%;
+    height: 180px;
+    /* padding: 32px; */
+    margin-top:5%;
+    align-items: center;
+    opacity:0.9;
+}
+
+.airModerate-box .aqi-box{
+    background: #efbe1d;
+}
+
+.airSomeUnhealthy-box{
+    background: #ff9b57;
+    color: #974a20;
+    border-radius: 10px;
+    /* border:solid 5px black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    width: 80%;
+    height: 180px;
+    /* padding: 32px; */
+    margin-top:5%;
+    align-items: center;
+    opacity:0.9;
+}
+
+.airSomeUnhealthy-box .aqi-box{
+    background: #f27e2f;
+}
+
+.airUnhealthy-box{
+    background: #fe6a69;
+    color: #942431;
+    border-radius: 10px;
+    /* border:solid 5px black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    width: 80%;
+    height: 180px;
+    /* padding: 32px; */
+    margin-top:5%;
+    align-items: center;
+    opacity:0.9;
+}
+
+.airUnhealthy-box .aqi-box{
+    background: #e84b50;
+}
+
+.airVeryUnhealthy-box{
+    background: #a97abc;
+    color: #DDBBBB;
+    border-radius: 10px;
+    /* border:solid 5px black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    width: 80%;
+    height: 180px;
+    /* padding: 32px; */
+    margin-top:5%;
+    align-items: center;
+    opacity:0.9;
+}
+
+.airVeryUnhealthy-box .aqi-box{
+    background: #A45151;
+}
+
+.airHazard-box{
+    background: #a87383;
+    color: #2986dd;
+    border-radius: 10px;
+    /* border:solid 5px black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    width: 80%;
+    height: 180px;
+    /* padding: 32px; */
+    margin-top:5%;
+    align-items: center;
+    opacity:0.9;
+}
+
+.airHazard-box .aqi-box{
+    background: #67788d;
+}
+
+.airBox{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.aqi-box{
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+    color: #fff;
+    border-radius: 4px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    /* border: solid 2px red; */
+    /* padding:5%; */
+    margin:30px;
+    width: 120px;
+    height:120px;
+
+}
+
+.usaqi{
+    line-height: 1.5;
+    text-transform: uppercase;
+    font-size:16px;
+}
+
+.aqi-value{
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.aqi-cond{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.aqi-title{
+    font-size: 20px;
+}
+
+
+.air-status{
+    font-size: 50px;;
+}
+
+.airCityName{
+    font-size: 60px;
+    /* border:solid 5px; */
+    padding:2px;
+}
+
+.airhealthIcon{
+    width:90px;
+    margin:30px;
+    font-size: large;
+}
+
+.air-icon-class{
+    width:100px;
+}
+
+.button-css{
+    padding: 1% 1%;
+    border-radius: 6px;
+    font-size: 15px;
+    border-color: transparent;
+    color: #fff;
+    background: #d9b2a9;
+    font-weight: 400;
+    cursor: pointer;
+    margin-top:2%;
+}
+
+.button-css:hover{
+    box-shadow: 0 5px 15px rgb(0 0 0 / 35%);
+}
+
+
+.index-message{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    padding:2%;
+    justify-content: start;
+    align-items: start;
+    margin-top: 1%;
+}
+.index-para{
+    text-align: start;
+}
+.index-para h1{
+    text-align: start;
+}
+
+.index-para p{
+    text-align: start;
+    width:90%;
 }
